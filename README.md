@@ -20,6 +20,7 @@ Built with R 4.6.1. `run_all.R` installs any missing packages.
 | `R/01_panels.R` | one SVG per panel (`panels/A.svg` to `D.svg`), saved at its final size |
 | `R/02_assemble.R` | places the panels on a 7 in wide page, adds panel letters and the arrow in B, writes `figure/figure_1.svg`, `.pdf` and a 300 dpi `.png` |
 | `R/03_vector_vs_raster.R` | zooms into panel B from the SVG and from a 72 dpi PNG |
+| `R/04_colour_check.R` | simulates colour-blind vision on the final figure |
 
 ## Finishing in Inkscape
 
@@ -37,6 +38,14 @@ Same corner of panel B, zoomed in. Left from the SVG, right from a 72 dpi PNG:
   <img src="figure/zoom_vector.png" width="380">
   <img src="figure/zoom_raster.png" width="380">
 </p>
+
+## Colour check
+
+`R/04_colour_check.R` simulates how the figure looks with colour vision deficiencies (colorspace package). Top left is the original, then deuteranopia, protanopia and tritanopia:
+
+![colour check](figure/colour_check.png)
+
+The Okabe-Ito species colours stay distinct for deuteranopia and protanopia. With tritanopia, Chinstrap and Gentoo both turn teal and only differ in lightness, so the panels still rely on position and the legend there. The red-blue heatmap scale stays readable in all four.
 
 ## Notes from the workshop
 
