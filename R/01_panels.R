@@ -55,6 +55,7 @@ b <- ggplot(peng, aes(bill_length_mm, bill_depth_mm)) +
 save_panel(b, "panels/B.svg", 3.4, 2.6)
 
 # C: body mass, every penguin plus the distribution
+set.seed(1)  # fixed jitter, so a rebuild gives the same figure
 c_plot <- ggplot(peng, aes(species, body_mass_g / 1000, fill = species)) +
   geom_violin(colour = NA, alpha = 0.35) +
   geom_jitter(aes(colour = species), width = 0.15, size = 0.5, alpha = 0.7) +
